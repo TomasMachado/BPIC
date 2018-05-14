@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -48,8 +49,7 @@ public class Planilha {
 		return cases;
 	
 	}
-	
-	
+		
 	public ArrayList<String> commonIDS(ArrayList<String> ID1, ArrayList<String> ID2){
 		ArrayList<String> commonIDS = new ArrayList<String>();
 		for (int i = 0; i < ID1.size(); i++) {
@@ -93,6 +93,27 @@ public class Planilha {
 			e.printStackTrace();
 		}
 	}
+	
+	public void planilhaOut(ArrayList<String[]> dados, ArrayList<String> append, String local) {
+		try {
+			FileWriter fw = new FileWriter(local, false);
+			BufferedWriter bw = new BufferedWriter(fw);
+			PrintWriter pw = new PrintWriter(bw);
+			for (int i = 0; i < dados.size(); i++) {
+				String[] temp = dados.get(i);
+				StringBuilder linha = new StringBuilder();
+				for (int j = 0; j < temp.length; j++) {
+					linha.append(temp[j]+",");
+					
+				}
+				linha.append(append.get(i));
+				pw.println(linha.toString());
+				pw.flush();
+			}
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void uniaoIds(String local1, String local2,String localSaida) {
 		ArrayList<String[]> planilha1 = planilhaIn(local1);
@@ -105,4 +126,20 @@ public class Planilha {
 		
 	}
 
+	public ArrayList<String> tempoPassado(ArrayList<String[]> p){
+		ArrayList<String> tempos = new ArrayList<String>();
+		int size = p.size();
+		for(int i = 0; i<p.size();i++) {
+			String idAtual = p.get(i)[0];
+			Data dataAtual = new Data(p.get(i)[3]);
+			while(i<size && idAtual.equals(p.get(i)[0])) {
+				Data data = new Data(p.get(i)[3]);
+				tempos.add(Data.substrairDatas(data, dataAtual));
+				i++;
+			}i--;
+		}
+		
+		
+		return tempos;
+	}
 }
