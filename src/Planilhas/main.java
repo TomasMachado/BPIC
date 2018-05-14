@@ -22,12 +22,7 @@ public class main {
 //		new Janela();
 		
 		Planilha p = new Planilha();
-		ArrayList<String[]> change = p.planilhaIn("Change.csv");
-		
-		ArrayList<String> tempo = p.tempoPassado(change);
-		
-		p.planilhaOut(change, tempo, "testTempo.csv");
-		
+	
 		
 	
 		
