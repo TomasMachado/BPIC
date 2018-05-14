@@ -24,18 +24,7 @@ public class main {
 		Planilha p = new Planilha();
 		ArrayList<String[]> change = p.planilhaIn("Change.csv");
 		
-		 SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
-		 System.out.println(change.get(3)[3]);
-		   try {
 
-	            Date date = formatter.parse(change.get(3)[3]);
-	            System.out.println(date);
-	            System.out.println(formatter.format(date));
-
-	        } catch (ParseException e) {
-	            e.printStackTrace();
-	        }
-		
 		
 	
 		
