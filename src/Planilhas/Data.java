@@ -53,11 +53,8 @@ public class Data {
 		long minutos = restoHoras/60000;
 		long restominutos = restoHoras%60000;
 		
-				
-				
 		builder.append(ms/86400000);
 
-		
 		return builder.toString();
 	}
 
