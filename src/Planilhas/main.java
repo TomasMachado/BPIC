@@ -22,8 +22,13 @@ public class main {
 //		new Janela();
 		
 		Planilha p = new Planilha();
-	
 		
+		
+		ArrayList<String[]> test = p.planilhaIn("C:\\Users\\Tomas\\Desktop\\Payment application.csv");
+		
+		ArrayList<String> outcome1 = Filtros.filtroOutcome1(test);
+		
+		p.planilhaOut(outcome1, "o1.csv",true);
 	
 		
 	}

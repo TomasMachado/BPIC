@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Planilha {
 
 	public Planilha() {
@@ -36,7 +37,9 @@ public class Planilha {
 			s.printStackTrace();
 		}
 		return valores;
+		
 	}
+	
 	
 	public ArrayList<String> getCasesID(ArrayList<String[]> planilha){
 		ArrayList<String> cases = new ArrayList<String>();
@@ -94,22 +97,19 @@ public class Planilha {
 		}
 	}
 	
-	public void planilhaOut(ArrayList<String[]> dados, ArrayList<String> append, String local) {
+	
+	
+	public void planilhaOut(ArrayList<String> dados, String local, boolean b) {
 		try {
 			FileWriter fw = new FileWriter(local, false);
 			BufferedWriter bw = new BufferedWriter(fw);
 			PrintWriter pw = new PrintWriter(bw);
 			for (int i = 0; i < dados.size(); i++) {
-				String[] temp = dados.get(i);
-				StringBuilder linha = new StringBuilder();
-				for (int j = 0; j < temp.length; j++) {
-					linha.append(temp[j]+",");
+				pw.println(dados.get(i));
 					
 				}
-				linha.append(append.get(i));
-				pw.println(linha.toString());
+				
 				pw.flush();
-			}
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
