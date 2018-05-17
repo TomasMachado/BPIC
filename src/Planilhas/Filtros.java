@@ -35,7 +35,7 @@ public class Filtros {
 				j--;
 			}
 			; // ao fim do loop, j vai ser o ultimo begin payment do ano
-			if (true) {
+			if (p.get(j)[1].equals("Payment application-Application-begin payment")) {
 				while (j < fim) {
 					if (p.get(j)[1].equals("Payment application-Application-abort payment")
 							|| p.get(j)[1].equals("Payment application-Application-abort payment")
